@@ -1,5 +1,4 @@
 zsh_history_fuzzy_search() {
-    local search_bind=${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}
     local search_fuzzer=${ZSH_HISTORY_FUZZY_SEARCH_FUZZER:-"fzf"}
     local search_fuzzer_args
     if [ "$search_fuzzer" = "fzf" ]; then
@@ -49,4 +48,4 @@ zsh_history_fuzzy_search() {
 
 autoload zsh_history_fuzzy_search
 zle -N zsh_history_fuzzy_search
-bindkey "$search_bind" zsh_history_fuzzy_search
+bindkey "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh_history_fuzzy_search
