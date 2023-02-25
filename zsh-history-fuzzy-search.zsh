@@ -1,11 +1,20 @@
 zsh-history-fuzzy-search() {
-    local search_fuzzer=${ZSH_HISTORY_FUZZY_SEARCH_FUZZER:-"fzf"}
+    local search_fuzzer
+    if [ -n "$ZSH_HISTORY_FUZZY_SEARCH_FUZZER" ]; then
+        search_fuzzer=$ZSH_HISTORY_FUZZY_SEARCH_FUZZER
+    elif [ -x "$(command -v sk)" ]; then
+        search_fuzzer="sk"
+    elif [ -x "$(command -v fzf)" ]; then
+        search_fuzzer="fzf"
+    fi
+
     local search_fuzzer_args
     if [ "$search_fuzzer" = "fzf" ]; then
         search_fuzzer_args=${ZSH_HISTORY_FUZZY_SEARCH_FUZZER_ARGS:-" +s +m -e"}
     elif [ "$search_fuzzer" = "sk" ]; then
         search_fuzzer_args=${ZSH_HISTORY_FUZZY_SEARCH_FUZZER_ARGS:-" --no-sort --no-multi --ansi -e"}
     fi
+
     local search_remove_duplicates=${ZSH_HISTORY_FUZZY_SEARCH_REMOVE_DUPLICATES:-0}
 
     local show_dates=${ZSH_HISTORY_FUZZY_SEARCH_SHOW_DATES:-0}
