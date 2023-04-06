@@ -42,7 +42,6 @@ zsh-history-fuzzy-search() {
         ((space_nth--))
     fi
 
-    fc_args+=("-1")
     fc_args+=("0")
     fc_args=$(printf " %s" "${fc_args[@]}")
 
