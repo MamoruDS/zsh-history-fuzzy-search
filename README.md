@@ -31,7 +31,14 @@ zinit light MamoruDS/zsh-history-fuzzy-search
 -   `ZSH_HISTORY_FUZZY_SEARCH_BIND`
 
     Default: `^r`
+
     Keybinding to start plugin.
+
+-   `ZSH_HISTORY_FUZZY_SEARCH_NO_BIND`
+
+    Default: `0`
+
+    Disable any keybinding for starting the plugin. This overrides the `ZSH_HISTORY_FUZZY_SEARCH_BIND` setting.
 
 -   `ZSH_HISTORY_FUZZY_SEARCH_SHOW_DATES`
 

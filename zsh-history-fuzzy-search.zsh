@@ -63,4 +63,9 @@ zsh-history-fuzzy-search() {
 
 autoload zsh-history-fuzzy-search
 zle -N zsh-history-fuzzy-search
-bindkey "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh-history-fuzzy-search
+
+local zsh_history_fuzzy_search_bind="${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}"
+local zsh_history_fuzzy_search_no_bind=${ZSH_HISTORY_FUZZY_SEARCH_NO_BIND:-0}
+if [ $zsh_history_fuzzy_search_no_bind -eq 0 ]; then
+    bindkey "$zsh_history_fuzzy_search_bind" zsh-history-fuzzy-search
+fi
