@@ -59,6 +59,8 @@ zsh-history-fuzzy-search() {
         BUFFER="${candidates[@]}"
         zle vi-fetch-history -n $BUFFER
     fi
+    zle redisplay
+    zle reset-prompt
 }
 
 autoload zsh-history-fuzzy-search
