@@ -72,6 +72,12 @@ zinit light MamoruDS/zsh-history-fuzzy-search
 
     Default: `cat`
 
+-   `ZSH_HISTORY_FUZZY_SEARCH_FSH_PREVIEW`
+
+    Default: `0`
+
+    Enable native syntax-highlighted preview using [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting). Requires fast-syntax-highlighting to be loaded (`FAST_BASE_DIR` is set). When enabled, the preview will use your current FSH theme. This takes precedence over `ZSH_HISTORY_FUZZY_SEARCH_PREVIEW_PIPE_CMD`.
+
 -   `ZSH_HISTORY_FUZZY_SEARCH_PREVIEW_WINDOW_ARGS`
 
     Default: `down:30%`
