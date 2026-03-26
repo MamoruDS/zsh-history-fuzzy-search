@@ -63,8 +63,10 @@ zsh-history-fuzzy-search() {
 
     candidates=("$(eval $history_cmd | ${search_fuzzer}${=search_fuzzer_args} --with-nth $space_nth.. --preview-window=$preview_window_args --preview $preview_semble -q "$BUFFER" )")
     if [ -n "$candidates" ]; then
-        BUFFER="${candidates[@]}"
-        zle vi-fetch-history -n $BUFFER
+        setopt localoptions extendedglob
+        local prefix="${(M)BUFFER##[[:space:]]#}"
+        local event_num=${${candidates[@]##[[:space:]]#}%%[^0-9]*}
+        BUFFER="${prefix}${history[$event_num]}"
     fi
     zle redisplay
     zle reset-prompt
