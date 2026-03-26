@@ -1,3 +1,5 @@
+typeset -g _ZSH_HISTORY_FUZZY_SEARCH_DIR="${${(%):-%N}:A:h}"
+
 zsh-history-fuzzy-search() {
     local search_fuzzer
     if [ -n "$ZSH_HISTORY_FUZZY_SEARCH_FUZZER" ]; then
