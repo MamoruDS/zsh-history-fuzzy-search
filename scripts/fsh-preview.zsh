@@ -3,7 +3,7 @@
 emulate -LR zsh
 setopt extendedglob
 
-[ -z "$FAST_BASE_DIR" ] && { cat; return; }
+{ [ -z "$FAST_BASE_DIR" ] || [ ! -d "$FAST_BASE_DIR" ]; } && { cat < /dev/null; return; }
 
 {
     source "$FAST_BASE_DIR/fast-highlight"
