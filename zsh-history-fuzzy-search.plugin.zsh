@@ -68,7 +68,6 @@ zsh-history-fuzzy-search() {
         local event_num=${${candidates[@]##[[:space:]]#}%%[^0-9]*}
         BUFFER="${prefix}${history[$event_num]}"
     fi
-    zle redisplay
     zle reset-prompt
 }
 
